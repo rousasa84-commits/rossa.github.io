@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUB交付1个月专属·潜意识改写阶段定位测评</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", 微软雅黑, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            padding: 20px 10px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px 25px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        h1 {
+            font-size: 22px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .intro {
+            background: #f0f5fa;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 15px;
+            color: #555;
+        }
+        .section {
+            margin-bottom: 35px;
+        }
+        .section-title {
+            font-size: 18px;
+            color: #2c3e50;
+            font-weight: 600;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 22px;
+        }
+        .question-title {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .options {
+            padding-left: 8px;
+        }
+        .option-item {
+            margin-bottom: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+        }
+        .option-item input {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        .score-options {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .score-option {
+            flex: 1;
+            min-width: 60px;
+            text-align: center;
+            padding: 8px 5px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        .score-option input {
+            display: none;
+        }
+        .score-option:has(input:checked) {
+            background: #3498db;
+            color: #fff;
+            border-color: #3498db;
+        }
+        .score-option:hover {
+            border-color: #3498db;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            height: 48px;
+            line-height: 48px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 0 auto;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        /* 结果页样式 */
+        .result-page {
+            display: none;
+        }
+        .result-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .result-score {
+            font-size: 40px;
+            font-weight: 700;
+            color: #3498db;
+            margin: 10px 0;
+        }
+        .result-stage {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .result-desc {
+            background: #f0f5fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        .result-table th, .result-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+        }
+        .result-table th {
+            background: #f5f7fa;
+            width: 40%;
+            font-weight: 500;
+            text-align: left;
+        }
+        .copy-btn {
+            background: #27ae60;
+            margin-bottom: 20px;
+        }
+        .copy-btn:hover {
+            background: #219653;
+        }
+        .tip {
+            color: #e74c3c;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 18px;
+            }
+            .score-option {
+                min-width: 50px;
+                font-size: 12px;
+                padding: 6px 3px;
+            }
+            .result-table th, .result-table td {
+                padding: 8px 5px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 问卷页面 -->
+        <div class="questionnaire-page" id="questionnairePage">
+            <h1>SUB交付1个月专属·潜意识改写阶段定位测评</h1>
+            <div class="intro">
+                亲爱的用户您好！<br>
+                恭喜您完成定制SUB音频1个月的收听旅程！这份专属测评，是为您量身打造的1个月成果追踪工具，核心目的是精准定位您当前的潜意识改写所处阶段，清晰梳理您的成长收获、可优化方向，为您输出专属的收听效率提升方案。<br>
+                本测评全部为选择题，填写时长约4分钟，答案无对错之分，请您根据过去1个月的真实收听体验和状态如实选择，所有数据仅用于您的个人阶段分析与专属方案定制。
+            </div>
+
+            <!-- 第一部分：基础收听信息 -->
+            <div class="section">
+                <div class="section-title">第一部分：基础收听信息</div>
+                
+                <div class="question" data-qid="q1">
+                    <div class="question-title">1. 自收到定制SUB至今的1个月里，您累计收听的总时长情况是？</div>
+                    <div class="options">
+                        <label class="option-item">
+                            <input type="radio" name="q1" value="几乎未收听（累计收听天数＜3天）">
+                            几乎未收听（累计收听天数＜3天）
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q1" value="间断收听（累计收听天数3-14天，未形成稳定习惯）">
+                            间断收听（累计收听天数3-14天，未形成稳定习惯）
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q1" value="稳定收听（累计收听天数15-25天，多数日子能坚持）">
+                            稳定收听（累计收听天数15-25天，多数日子能坚持）
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q1" value="全量坚持收听（累计收听天数26-30天，几乎每日都按计划收听）">
+                            全量坚持收听（累计收听天数26-30天，几乎每日都按计划收听）
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="q2">
+                    <div class="question-title">2. 您本次定制SUB的核心诉求，属于以下哪一类？</div>
+                    <div class="options">
+                        <label class="option-item">
+                            <input type="radio" name="q2" value="情绪稳定/焦虑缓解类">
+                            情绪稳定/焦虑缓解类
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q2" value="睡眠改善类">
+                            睡眠改善类
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q2" value="专注力/学习工作效率提升类">
+                            专注力/学习工作效率提升类
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q2" value="自信/自我认知提升类">
+                            自信/自我认知提升类
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q2" value="财富/职场成长类">
+                            财富/职场成长类
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q2" value="其他">
+                            其他
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="q3">
+                    <div class="question-title">3. 过去1个月里，您平均每日收听SUB的总时长约为？</div>
+                    <div class="options">
+                        <label class="option-item">
+                            <input type="radio" name="q3" value="30分钟以内">
+                            30分钟以内
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q3" value="30分钟-1小时">
+                            30分钟-1小时
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q3" value="1-2小时">
+                            1-2小时
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q3" value="2小时以上（含整夜循环无声版）">
+                            2小时以上（含整夜循环无声版）
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="q4">
+                    <div class="question-title">4. 过去1个月里，您日常最常使用的SUB版本是？</div>
+                    <div class="options">
+                        <label class="option-item">
+                            <input type="radio" name="q4" value="仅有声版">
+                            仅有声版
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q4" value="仅无声睡眠版">
+                            仅无声睡眠版
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q4" value="有声版+无声版搭配使用">
+                            有声版+无声版搭配使用
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q4" value="仅专属五行白噪音版">
+                            仅专属五行白噪音版
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q4" value="三个版本均有高频使用">
+                            三个版本均有高频使用
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="q5">
+                    <div class="question-title">5. 过去1个月里，您是否严格遵循了配套的SUB收听说明（含同主题匹配原则、播放排他规则、场景适配建议等核心要求）？</div>
+                    <div class="options">
+                        <label class="option-item">
+                            <input type="radio" name="q5" value="完全遵循，全程按说明要求执行">
+                            完全遵循，全程按说明要求执行
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q5" value="基本遵循，偶尔有不符合要求的操作">
+                            基本遵循，偶尔有不符合要求的操作
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q5" value="很少遵循，经常随意调整收听规则">
+                            很少遵循，经常随意调整收听规则
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="q5" value="从未遵循，不清楚配套的收听说明要求">
+                            从未遵循，不清楚配套的收听说明要求
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第二部分：核心阶段定位采分题 -->
+            <div class="section">
+                <div class="section-title">第二部分：核心阶段定位采分题</div>
+                <div class="intro" style="margin-bottom: 20px; font-size: 14px;">
+                    评分规则：完全不符合=1分，不太符合=2分，一般=3分，比较符合=4分，完全符合=5分
+                </div>
+
+                <div class="question" data-qid="s1">
+                    <div class="question-title">1. 对比收到SUB前的初始状态，我负面情绪（焦虑、烦躁、内耗、自我否定）的出现频次明显减少</div>
+                    <div class="score-options">
+                        <label class="score-option">
+                            <input type="radio" name="s1" value="1">
+                            1分<br>完全不符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s1" value="2">
+                            2分<br>不太符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s2" value="3">
+                            3分<br>一般
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s1" value="4">
+                            4分<br>比较符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s1" value="5">
+                            5分<br>完全符合
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="s2">
+                    <div class="question-title">2. 出现负面情绪/负面念头时，我能比收到SUB前更快地自行平复、调整状态</div>
+                    <div class="score-options">
+                        <label class="score-option">
+                            <input type="radio" name="s2" value="1">
+                            1分<br>完全不符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s2" value="2">
+                            2分<br>不太符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s2" value="3">
+                            3分<br>一般
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s2" value="4">
+                            4分<br>比较符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s2" value="5">
+                            5分<br>完全符合
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="s3">
+                    <div class="question-title">3. 我能清晰感知到，自己对SUB里的正向信念，从一开始的怀疑/不相信，变成了现在的接纳/认可</div>
+                    <div class="score-options">
+                        <label class="score-option">
+                            <input type="radio" name="s3" value="1">
+                            1分<br>完全不符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s3" value="2">
+                            2分<br>不太符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s3" value="3">
+                            3分<br>一般
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s3" value="4">
+                            4分<br>比较符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s3" value="5">
+                            5分<br>完全符合
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="s4">
+                    <div class="question-title">4. 面对定制SUB对应的核心场景（如社交、工作、睡眠），我比收到SUB前更从容、更有掌控感</div>
+                    <div class="score-options">
+                        <label class="score-option">
+                            <input type="radio" name="s4" value="1">
+                            1分<br>完全不符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s4" value="2">
+                            2分<br>不太符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s4" value="3">
+                            3分<br>一般
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s4" value="4">
+                            4分<br>比较符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s4" value="5">
+                            5分<br>完全符合
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="s5">
+                    <div class="question-title">5. 经过1个月的收听，我定制SUB的核心诉求（如睡眠、专注力、情绪）有了肉眼可见的改善</div>
+                    <div class="score-options">
+                        <label class="score-option">
+                            <input type="radio" name="s5" value="1">
+                            1分<br>完全不符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s5" value="2">
+                            2分<br>不太符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s5" value="3">
+                            3分<br>一般
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s5" value="4">
+                            4分<br>比较符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s5" value="5">
+                            5分<br>完全符合
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="s6">
+                    <div class="question-title">6. 我已经养成了固定收听SUB的习惯，不需要刻意提醒就能坚持</div>
+                    <div class="score-options">
+                        <label class="score-option">
+                            <input type="radio" name="s6" value="1">
+                            1分<br>完全不符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s6" value="2">
+                            2分<br>不太符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s6" value="3">
+                            3分<br>一般
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s6" value="4">
+                            4分<br>比较符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s6" value="5">
+                            5分<br>完全符合
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="s7">
+                    <div class="question-title">7. 我能把SUB里的正向信念，主动运用到日常的生活、工作场景中</div>
+                    <div class="score-options">
+                        <label class="score-option">
+                            <input type="radio" name="s7" value="1">
+                            1分<br>完全不符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s7" value="2">
+                            2分<br>不太符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s7" value="3">
+                            3分<br>一般
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s7" value="4">
+                            4分<br>比较符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s7" value="5">
+                            5分<br>完全符合
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="s8">
+                    <div class="question-title">8. 收听过程中，我很少出现分心、抵触、听不进去的情况，能轻松放松地接收内容</div>
+                    <div class="score-options">
+                        <label class="score-option">
+                            <input type="radio" name="s8" value="1">
+                            1分<br>完全不符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s8" value="2">
+                            2分<br>不太符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s8" value="3">
+                            3分<br>一般
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s8" value="4">
+                            4分<br>比较符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s8" value="5">
+                            5分<br>完全符合
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="s9">
+                    <div class="question-title">9. 身边人能感受到我的状态变化（如情绪更稳定、更积极、做事更专注）</div>
+                    <div class="score-options">
+                        <label class="score-option">
+                            <input type="radio" name="s9" value="1">
+                            1分<br>完全不符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s9" value="2">
+                            2分<br>不太符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s9" value="3">
+                            3分<br>一般
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s9" value="4">
+                            4分<br>比较符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s9" value="5">
+                            5分<br>完全符合
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="s10">
+                    <div class="question-title">10. 我对当前的自身状态，比收到SUB前更满意、更接纳</div>
+                    <div class="score-options">
+                        <label class="score-option">
+                            <input type="radio" name="s10" value="1">
+                            1分<br>完全不符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s10" value="2">
+                            2分<br>不太符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s10" value="3">
+                            3分<br>一般
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s10" value="4">
+                            4分<br>比较符合
+                        </label>
+                        <label class="score-option">
+                            <input type="radio" name="s10" value="5">
+                            5分<br>完全符合
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第三部分：进阶成长需求 -->
+            <div class="section">
+                <div class="section-title">第三部分：进阶成长需求</div>
+                
+                <div class="question" data-qid="a1">
+                    <div class="question-title">1. 你是否希望更快突破当前状态，进入更深层的潜意识改写阶段？</div>
+                    <div class="options">
+                        <label class="option-item">
+                            <input type="radio" name="a1" value="非常希望，想加速成长">
+                            非常希望，想加速成长
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="a1" value="有想法，暂时先维持当前状态">
+                            有想法，暂时先维持当前状态
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="a1" value="不着急，顺其自然即可">
+                            不着急，顺其自然即可
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="a1" value="完全没有想法">
+                            完全没有想法
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="a2">
+                    <div class="question-title">2. 你是否想更深入地挖掘自己潜意识里未突破的卡点根源，让SUB的效果最大化？</div>
+                    <div class="options">
+                        <label class="option-item">
+                            <input type="radio" name="a2" value="非常想，需要专业工具/指导帮助挖掘">
+                            非常想，需要专业工具/指导帮助挖掘
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="a2" value="有一点想，暂时先自己摸索">
+                            有一点想，暂时先自己摸索
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="a2" value="不想，觉得当前状态足够">
+                            不想，觉得当前状态足够
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="a2" value="完全没兴趣">
+                            完全没兴趣
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-qid="a3">
+                    <div class="question-title">3. 以下哪些进阶服务，你可能会有需求？</div>
+                    <div class="options">
+                        <label class="option-item">
+                            <input type="checkbox" name="a3" value="欧卡潜意识挖掘咨询，精准梳理卡点根源">
+                            欧卡潜意识挖掘咨询，精准梳理卡点根源
+                        </label>
+                        <label class="option-item">
+                            <input type="checkbox" name="a3" value="一对一专业催眠，深度强化正向信念">
+                            一对一专业催眠，深度强化正向信念
+                        </label>
+                        <label class="option-item">
+                            <input type="checkbox" name="a3" value="专项情绪释放引导，扫清内耗障碍">
+                            专项情绪释放引导，扫清内耗障碍
+                        </label>
+                        <label class="option-item">
+                            <input type="checkbox" name="a3" value="全新主题SUB定制，拓展新的成长目标">
+                            全新主题SUB定制，拓展新的成长目标
+                        </label>
+                        <label class="option-item">
+                            <input type="checkbox" name="a3" value="无需求">
+                            以上均无需求
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn" id="submitBtn">提交测评，查看结果</button>
+            <div class="tip" id="tip">请您完成所有必填题目后再提交哦！</div>
+        </div>
+
+        <!-- 结果页面 -->
+        <div class="result-page" id="resultPage">
+            <h1>SUB1个月收听测评结果</h1>
+            <div class="result-header">
+                <div>您的测评最终得分</div>
+                <div class="result-score" id="totalScore">0</div>
+                <div>满分50分</div>
+                <div class="result-stage" id="stageName">--</div>
+            </div>
+
+            <div class="result-desc" id="stageDesc">--</div>
+
+            <button class="btn copy-btn" id="copyBtn">一键复制全部结果</button>
+
+            <div class="section">
+                <div class="section-title">用户答题详情汇总表</div>
+                <table class="result-table" id="resultTable">
+                    <thead>
+                        <tr>
+                            <th>测评题目</th>
+                            <th>用户选择结果</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultTableBody">
+                        <!-- 动态生成内容 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <button class="btn" id="backBtn">重新填写测评</button>
+        </div>
+    </div>
+
+    <script>
+        // 题目配置
+        const questionConfig = [
+            {
+                qid: 'q1',
+                title: '自收到定制SUB至今的1个月里，您累计收听的总时长情况是？'
+            },
+            {
+                qid: 'q2',
+                title: '您本次定制SUB的核心诉求，属于以下哪一类？'
+            },
+            {
+                qid: 'q3',
+                title: '过去1个月里，您平均每日收听SUB的总时长约为？'
+            },
+            {
+                qid: 'q4',
+                title: '过去1个月里，您日常最常使用的SUB版本是？'
+            },
+            {
+                qid: 'q5',
+                title: '过去1个月里，您是否严格遵循了配套的SUB收听说明？'
+            },
+            {
+                qid: 's1',
+                title: '1. 对比收到SUB前的初始状态，我负面情绪的出现频次明显减少'
+            },
+            {
+                qid: 's2',
+                title: '2. 出现负面情绪/负面念头时，我能比收到SUB前更快地自行平复'
+            },
+            {
+                qid: 's3',
+                title: '3. 我对SUB里的正向信念，从怀疑变成了接纳/认可'
+            },
+            {
+                qid: 's4',
+                title: '4. 面对核心场景，我比收到SUB前更从容、更有掌控感'
+            },
+            {
+                qid: 's5',
+                title: '5. 经过1个月的收听，我定制SUB的核心诉求有了肉眼可见的改善'
+            },
+            {
+                qid: 's6',
+                title: '6. 我已经养成了固定收听SUB的习惯，不需要刻意提醒就能坚持'
+            },
+            {
+                qid: 's7',
+                title: '7. 我能把SUB里的正向信念，主动运用到日常的生活、工作场景中'
+            },
+            {
+                qid: 's8',
+                title: '8. 收听过程中，我很少出现分心、抵触，能轻松放松地接收内容'
+            },
+            {
+                qid: 's9',
+                title: '9. 身边人能感受到我的状态变化'
+            },
+            {
+                qid: 's10',
+                title: '10. 我对当前的自身状态，比收到SUB前更满意、更接纳'
+            },
+            {
+                qid: 'a1',
+                title: '是否希望更快突破当前状态，进入更深层的潜意识改写阶段？'
+            },
+            {
+                qid: 'a2',
+                title: '是否想更深入地挖掘自己潜意识里未突破的卡点根源？'
+            },
+            {
+                qid: 'a3',
+                title: '以下哪些进阶服务，你可能会有需求？'
+            }
+        ];
+
+        // 阶段配置
+        const stageConfig = [
+            {
+                minScore: 0,
+                maxScore: 10,
+                name: '停滞瓶颈期',
+                desc: '当前您的潜意识对正向信念暂未形成稳定接纳，暂未感受到明显的改善效果。这一阶段的核心是先调整收听习惯、扫清认知障碍，重新梳理适合自己的收听方案，让潜意识逐步适应正向暗示。'
+            },
+            {
+                minScore: 11,
+                maxScore: 20,
+                name: '萌芽适配期',
+                desc: '当前您的表层情绪已有轻微改善，潜意识开始逐步适应SUB的正向暗示，处于初步接纳阶段。这一阶段的核心是优化收听习惯、强化基础植入，坚持稳定收听，让正向信念逐步扎根潜意识。'
+            },
+            {
+                minScore: 21,
+                maxScore: 35,
+                name: '信念强化期',
+                desc: '当前您的正向信念已初步建立，情绪稳定性有明显提升，负面念头出现频次显著减少，能主动调整负面思维，处于稳步提升阶段。这一阶段的核心是强化场景绑定、加速信念固化，让正向信念和日常场景深度融合。'
+            },
+            {
+                minScore: 36,
+                maxScore: 50,
+                name: '稳定落地期',
+                desc: '当前您的正向信念已形成稳定认知，情绪可自主调节，负面念头基本可控，能将正向信念熟练运用到日常场景中，处于成果落地阶段。这一阶段的核心是长期巩固、深度落地，同时可拓展新的成长目标，实现更深层的潜意识改写。'
+            }
+        ];
+
+        // 元素获取
+        const questionnairePage = document.getElementById('questionnairePage');
+        const resultPage = document.getElementById('resultPage');
+        const submitBtn = document.getElementById('submitBtn');
+        const backBtn = document.getElementById('backBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const tip = document.getElementById('tip');
+        const totalScore = document.getElementById('totalScore');
+        const stageName = document.getElementById('stageName');
+        const stageDesc = document.getElementById('stageDesc');
+        const resultTableBody = document.getElementById('resultTableBody');
+
+        // 提交按钮点击事件
+        submitBtn.addEventListener('click', function() {
+            // 验证所有必填题
+            const allRequired = [
+                'q1','q2','q3','q4','q5',
+                's1','s2','s3','s4','s5','s6','s7','s8','s9','s10',
+                'a1','a2'
+            ];
+            let isAllFilled = true;
+
+            // 验证单选题
+            allRequired.forEach(qid => {
+                const checked = document.querySelector(`input[name="${qid}"]:checked`);
+                if (!checked) {
+                    isAllFilled = false;
+                }
+            });
+
+            // 验证多选题
+            const a3Checked = document.querySelectorAll(`input[name="a3"]:checked`);
+            if (a3Checked.length === 0) {
+                isAllFilled = false;
+            }
+
+            // 未填完提示
+            if (!isAllFilled) {
+                tip.style.display = 'block';
+                setTimeout(() => {
+                    tip.style.display = 'none';
+                }, 3000);
+                return;
+            }
+
+            // 计算总分
+            let score = 0;
+            for (let i = 1; i <= 10; i++) {
+                const sChecked = document.querySelector(`input[name="s${i}"]:checked`);
+                if (sChecked) {
+                    score += parseInt(sChecked.value);
+                }
+            }
+
+            // 匹配阶段
+            let currentStage = stageConfig[0];
+            for (let i = 0; i < stageConfig.length; i++) {
+                if (score >= stageConfig[i].minScore && score <= stageConfig[i].maxScore) {
+                    currentStage = stageConfig[i];
+                    break;
+                }
+            }
+
+            // 生成结果表格
+            let tableHtml = '';
+            questionConfig.forEach(item => {
+                let answerText = '';
+                if (item.qid === 'a3') {
+                    // 处理多选题
+                    const checkedList = document.querySelectorAll(`input[name="${item.qid}"]:checked`);
+                    let answerArr = [];
+                    checkedList.forEach(box => {
+                        answerArr.push(box.value);
+                    });
+                    // 智能转换无需求
+                    if (answerArr.includes('无需求')) {
+                        answerText = '对于进阶服务，用户暂无需求';
+                    } else {
+                        answerText = answerArr.join('、');
+                    }
+                } else {
+                    // 处理单选题
+                    const checked = document.querySelector(`input[name="${item.qid}"]:checked`);
+                    if (checked) {
+                        answerText = checked.value;
+                    }
+                }
+                tableHtml += `
+                    <tr>
+                        <td>${item.title}</td>
+                        <td>${answerText}</td>
+                    </tr>
+                `;
+            });
+            resultTableBody.innerHTML = tableHtml;
+
+            // 填充结果
+            totalScore.innerText = score;
+            stageName.innerText = `当前所处阶段：${currentStage.name}`;
+            stageDesc.innerText = currentStage.desc;
+
+            // 切换页面
+            questionnairePage.style.display = 'none';
+            resultPage.style.display = 'block';
+        });
+
+        // 重新填写按钮
+        backBtn.addEventListener('click', function() {
+            // 清空所有选项
+            const allInputs = document.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+            allInputs.forEach(input => {
+                input.checked = false;
+            });
+            // 切换页面
+            resultPage.style.display = 'none';
+            questionnairePage.style.display = 'block';
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        });
+
+        // 复制结果按钮
+        copyBtn.addEventListener('click', function() {
+            // 生成复制文本
+            let copyText = `SUB1个月收听测评结果\n\n`;
+            copyText += `测评最终得分：${totalScore.innerText}分（满分50分）\n`;
+            copyText += `${stageName.innerText}\n`;
+            copyText += `阶段说明：${stageDesc.innerText}\n\n`;
+            copyText += `用户答题详情汇总：\n`;
+            
+            // 遍历表格内容
+            const trList = resultTableBody.querySelectorAll('tr');
+            trList.forEach(tr => {
+                const tdList = tr.querySelectorAll('td');
+                copyText += `【${tdList[0].innerText}】：${tdList[1].innerText}\n`;
+            });
+
+            // 复制到剪贴板
+            navigator.clipboard.writeText(copyText).then(() => {
+                alert('结果已成功复制到剪贴板！');
+            }).catch(() => {
+                // 兼容低版本浏览器
+                const textarea = document.createElement('textarea');
+                textarea.value = copyText;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('结果已成功复制到剪贴板！');
+            });
+        });
+
+        // 多选题互斥：选了无需求，取消其他选项
+        const a3NoNeed = document.querySelector('input[name="a3"][value="无需求"]');
+        const a3OtherOptions = document.querySelectorAll('input[name="a3"]:not([value="无需求"])');
+        
+        a3NoNeed.addEventListener('change', function() {
+            if (this.checked) {
+                a3OtherOptions.forEach(box => {
+                    box.checked = false;
+                });
+            }
+        });
+
+        a3OtherOptions.forEach(box => {
+            box.addEventListener('change', function() {
+                if (this.checked) {
+                    a3NoNeed.checked = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
